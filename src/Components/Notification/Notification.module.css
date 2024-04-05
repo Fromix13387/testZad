@@ -1,0 +1,88 @@
+.Notification {
+  display: flex;
+  align-items: center;
+  font-family: Helveticaneuecyr, serif;
+  position: absolute;
+  display: none;
+  cursor: pointer;
+  top: 40px;
+  left: 10px;
+  border-radius: 10px;
+  padding: 20px;
+  width: 400px;
+  min-height: 100px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+.Notification.visible {
+  display: block;
+}
+.Notification.start {
+  animation: activeNotice 1.5s;
+}
+.Notification.close {
+  animation: activeNotice 1.5s reverse;
+}
+.Notification.success svg {
+  background-color: forestgreen;
+}
+.Notification.error svg {
+  background-color: #ff1616;
+}
+.Notification > div {
+  width: 100%;
+  display: flex;
+  gap: 15px;
+}
+.Notification > div > svg {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  padding: 5px;
+  color: white;
+}
+.Notification .notification_info {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.Notification .notification_info .text {
+  font-size: 12px;
+  color: #7B7C7D;
+}
+.Notification .notification_info .label {
+  font-size: 16px;
+}
+.Notification .notification_info .progress {
+  width: 100%;
+  background-color: #C7C9C8;
+  border-radius: 15px;
+  height: 7px;
+}
+.Notification .notification_info .progress::-moz-progress-bar {
+  background-color: #C7C9C8;
+  border-radius: 15px;
+}
+.Notification .notification_info .progress::-webkit-progress-bar {
+  background-color: #C7C9C8;
+  border-radius: 15px;
+}
+.Notification .notification_info .progress::-webkit-progress-value {
+  border-radius: 8px;
+  background-color: #4B4E51;
+}
+
+@keyframes activeNotice {
+  from {
+    transform: translateX(-450px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+@font-face {
+  font-family: "Helveticaneuecyr";
+  src: url("../../assets/fonts/helveticaneuecyr_roman.otf");
+}
+
+/*# sourceMappingURL=Notification.module.css.map */

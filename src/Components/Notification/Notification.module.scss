@@ -1,0 +1,98 @@
+@mixin flexCenter {
+  display: flex;
+  align-items: center;
+}
+.Notification {
+  @include flexCenter;
+  font-family: Helveticaneuecyr, serif;
+  position: absolute;
+  display: none;
+  cursor: pointer;
+  top: 40px;
+  left: 10px;
+  border-radius:10px;
+  padding:20px;
+  width: 400px;
+  min-height: 100px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  &.visible {
+    display: block;
+  }
+  &.start {
+     animation: activeNotice 1.5s;
+  }
+  &.close {
+    animation: activeNotice 1.5s reverse;
+  }
+  &.success svg {
+    background-color: forestgreen;
+  }
+  &.error svg {
+    background-color: #ff1616;
+  }
+  > div {
+    width: 100%;
+    display: flex;
+    gap: 15px;
+
+    > svg {
+      width: 40px;
+      height: 40px;
+
+      border-radius: 50%;
+      padding: 5px;
+      color: white;
+    }
+  }
+
+
+  .notification_info {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+
+    .text {
+      font-size: 12px;
+      color: #7B7C7D;
+    }
+    .label {
+      font-size: 16px;
+    }
+    .progress {
+      width: 100%;
+      background-color: #C7C9C8;
+      border-radius: 15px;
+      height: 7px;
+
+      &::-moz-progress-bar {
+        background-color: #C7C9C8;
+        border-radius: 15px;
+      }
+      &::-webkit-progress-bar {
+        background-color: #C7C9C8;
+        border-radius: 15px;
+      }
+      &::-webkit-progress-value {
+        border-radius: 8px;
+        background-color: #4B4E51;
+      }
+
+    }
+  }
+
+
+}
+@keyframes activeNotice {
+  from {
+    transform: translateX(-450px);
+  }
+  to {
+    transform: translateX(0px);
+  }
+}
+@font-face {
+  font-family: "Helveticaneuecyr";
+  src: url("../../assets/fonts/helveticaneuecyr_roman.otf");
+}
+
