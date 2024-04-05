@@ -5,7 +5,7 @@ const Notification = ({label, text, status, setVisible}) => {
     const ANIMATION_TIME = 1500
     const [timeLeft, setTimeLeft] = useState(DURATION)
     const [hover, setHover] = useState(false)
-
+    const [classes, setClasses] = useState(null)
     const type = () => {
         let cs = cl.Notification + " " + cl.visible + " "
         switch (status) {
@@ -15,7 +15,7 @@ const Notification = ({label, text, status, setVisible}) => {
                 return cs += cl.error
         }
     }
-    const [classes, setClasses] = useState(null)
+
     const onMouseLeave = () => {
         if (timeLeft > 0) {
             setHover(false);
