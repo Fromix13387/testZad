@@ -17,6 +17,7 @@ function App() {
     }
 
     const getData = async () => {
+        setVisibleNotice(false)
         const res = await fetch()
             .then(() => setData({label: 'Успешно', status: 'success', text: 'всё выполнено'}))
             .catch(() => setData({label: 'Ошбика', status: 'error', text: 'Не выполнено'}))
