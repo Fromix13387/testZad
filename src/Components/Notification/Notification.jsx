@@ -15,7 +15,7 @@ const Notification = ({label, text, status, setVisible}) => {
                 return cs += cl.error
         }
     }
-    const [classes, setClasses] = useState(type())
+    const [classes, setClasses] = useState(null)
     const onMouseLeave = () => {
         if (timeLeft > 0) {
             setHover(false);
@@ -24,6 +24,7 @@ const Notification = ({label, text, status, setVisible}) => {
     }
 
     useEffect(() => {
+        setClasses(type())
         const awaitTimeout = DURATION === timeLeft ? ANIMATION_TIME : 0
         if (timeLeft <= 0) {
             setClasses(type() + " " + cl.close)
